@@ -7,10 +7,10 @@
     }
     SubShader
     {
-		Lighting Off Fog { Mode Off }
+        Lighting Off Fog { Mode Off }
         Pass
         {
-			Tags { "LightMode" = "ForwardBase" } 
+            Tags { "LightMode" = "ForwardBase" } 
 
             CGPROGRAM
             // use "vert" function as the vertex shader
@@ -18,7 +18,7 @@
             // use "frag" function as the pixel (fragment) shader
             #pragma fragment frag
 
-			#include "UnityCG.cginc"
+            #include "UnityCG.cginc"
 
             // vertex shader inputs
             struct appdata
@@ -33,21 +33,21 @@
             {
                 float2 uv : TEXCOORD0;
                 float4 vertex : SV_POSITION;
-				fixed4 color : COLOR;
+                fixed4 color : COLOR;
             };
 
             sampler2D _MainTex;
             sampler2D _Gradient;
 
-			float4 _MainTex_ST;
+            float4 _MainTex_ST;
 
             // vertex shader
             v2f vert (appdata v)
             {
                 v2f o;
                 o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
-				o.uv = TRANSFORM_TEX(v.uv,_MainTex);
-				o.color = dot( v.normal, _WorldSpaceLightPos0.xyz );
+                o.uv = TRANSFORM_TEX(v.uv,_MainTex);
+                o.color = dot( v.normal, _WorldSpaceLightPos0.xyz );
                 return o;
             }
             
