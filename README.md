@@ -1,4 +1,4 @@
-# Simple Vertex Color Toon Shader For Unity 3D
+# Simple Vertex Color Toon Shader For Unity 3D on mobile
 
 ======
 
